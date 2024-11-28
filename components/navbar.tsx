@@ -30,7 +30,6 @@ export function Navbar() {
                 height={40}
                 className="mr-2"
               />
-        
             </Link>
           </div>
           <div className="hidden md:flex md:items-center md:justify-center flex-grow">
@@ -45,7 +44,9 @@ export function Navbar() {
             ))}
           </div>
           <div className="hidden md:flex md:items-center">
-            <Button variant="outline">Get a Quote</Button>
+            <Button variant="outline" asChild>
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
           </div>
           <div className="flex items-center md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -67,11 +68,10 @@ export function Navbar() {
                       {item.label}
                     </Link>
                   ))}
-                  <Link href="/contact">
-                  <Button variant="outline" className="mt-4" onClick={() => setIsOpen(false)}>
-                    Get a Quote
+                  
+                  <Button variant="outline" asChild className="mt-4" onClick={() => setIsOpen(false)}>
+                    <Link href="/contact">Get a Quote</Link>
                   </Button>
-                  </Link>
                 </div>
               </SheetContent>
             </Sheet>
@@ -81,3 +81,4 @@ export function Navbar() {
     </nav>
   )
 }
+

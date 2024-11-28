@@ -2,11 +2,13 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 const navItems = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
@@ -18,22 +20,31 @@ export function Navbar() {
   return (
     <nav className="bg-background border-b sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="text-2xl font-bold text-primary">StripeRight</span>
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/dons-logo.webp"
+                alt="StripeRight Logo"
+                width={40}
+                height={40}
+                className="mr-2"
+              />
+        
             </Link>
           </div>
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <div className="hidden md:flex md:items-center md:justify-center flex-grow">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-colors mx-4"
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+          <div className="hidden md:flex md:items-center">
             <Button variant="outline">Get a Quote</Button>
           </div>
           <div className="flex items-center md:hidden">
@@ -68,4 +79,3 @@ export function Navbar() {
     </nav>
   )
 }
-

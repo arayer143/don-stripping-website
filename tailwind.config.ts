@@ -50,7 +50,7 @@ export default {
           '3': 'hsl(201, 96%, 32%)',
           '4': 'hsl(41, 96%, 40%)',
           '5': 'hsl(224, 76%, 48%)'
-        },
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -58,19 +58,19 @@ export default {
         sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
+        }
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out'
+      }
     }
   },
   plugins: [animatePlugin],

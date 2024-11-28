@@ -1,43 +1,104 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+'use client'
 
-export function AboutSection() {
+import { motion } from "framer-motion"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, Award, Users, Clock } from 'lucide-react'
+
+export default function About() {
   return (
-    <section id="about" className="py-16 bg-muted">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-8">About StripeRight</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h2 className="text-3xl font-bold tracking-tight text-center mb-4">About Don&apos;s Stripping Inc.</h2>
+        <p className="text-center text-lg mb-12 text-muted-foreground">
+          Directing you towards success since 2003
+        </p>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader>
-              <CardTitle>Our Story</CardTitle>
+              <CardTitle className="flex items-center">
+                <Award className="mr-2 h-5 w-5 text-primary" />
+                Our Mission
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
-                Founded in 2005, StripeRight has been providing top-quality concrete striping and marking services for over 15 years.
-              </CardDescription>
+              To provide top-quality surface stripping and painting services, ensuring customer satisfaction and success in every project we undertake.
             </CardContent>
           </Card>
+
           <Card>
             <CardHeader>
-              <CardTitle>Our Mission</CardTitle>
+              <CardTitle className="flex items-center">
+                <Users className="mr-2 h-5 w-5 text-primary" />
+                Our Team
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
-                We strive to deliver precise, durable, and visually appealing striping solutions that enhance safety and organization in various environments.
-              </CardDescription>
+              Our experienced professionals are dedicated to delivering excellence in every aspect of our work, from design to execution.
             </CardContent>
           </Card>
+
           <Card>
             <CardHeader>
-              <CardTitle>Our Expertise</CardTitle>
+              <CardTitle className="flex items-center">
+                <Clock className="mr-2 h-5 w-5 text-primary" />
+                Our Commitment
+              </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
-                With a team of skilled professionals and state-of-the-art equipment, we ensure every project meets the highest standards of quality and compliance.
-              </CardDescription>
+              We are committed to using the latest techniques and materials to ensure durability, safety, and aesthetic appeal in all our projects.
             </CardContent>
           </Card>
         </div>
-      </div>
+
+        <motion.div 
+          className="mt-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Meet Our Founder</CardTitle>
+              <CardDescription>The driving force behind Don&apos;s Stripping Inc.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col sm:flex-row items-center gap-6">
+              <Avatar className="w-24 h-24">
+                <AvatarImage src="/placeholder.svg" alt="Don" />
+                <AvatarFallback>DN</AvatarFallback>
+              </Avatar>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Don Nelson</h3>
+                <p className="text-muted-foreground mb-4">
+                  With over 20 years of experience in the industry, Don has built a reputation for quality, reliability, and innovation in surface stripping and painting.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline">20+ Years Experience</Badge>
+                  <Badge variant="outline">Industry Leader</Badge>
+                  <Badge variant="outline">Community Advocate</Badge>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div 
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+        >
+          <a href="#contact" className="inline-flex items-center text-primary hover:underline">
+            Get in touch with us today <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

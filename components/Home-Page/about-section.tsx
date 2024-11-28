@@ -4,7 +4,9 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { ArrowRight, Award, Users, Clock } from 'lucide-react'
+import Link from 'next/link'
 
 export default function About() {
   return (
@@ -70,13 +72,13 @@ export default function About() {
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row items-center gap-6">
               <Avatar className="w-24 h-24">
-                <AvatarImage src="/placeholder.svg" alt="Don" />
+                <AvatarImage src="/dons-logo.webp" alt="Don" />
                 <AvatarFallback>DN</AvatarFallback>
               </Avatar>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Don Nelson</h3>
+                <h3 className="text-xl font-semibold mb-2">Don&apos;s Stripping</h3>
                 <p className="text-muted-foreground mb-4">
-                  With over 20 years of experience in the industry, Don has built a reputation for quality, reliability, and innovation in surface stripping and painting.
+                  With over 20 years of experience in the industry, Don&apos;s has built a reputation for quality, reliability, and innovation in surface stripping and painting.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="outline">20+ Years Experience</Badge>
@@ -94,9 +96,12 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
         >
-          <a href="#contact" className="inline-flex items-center text-primary hover:underline">
-            Get in touch with us today <ArrowRight className="ml-2 h-4 w-4" />
-          </a>
+          <Button asChild size="lg" className="group">
+            <Link href="/contact">
+              Get in touch with us today
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
         </motion.div>
       </motion.div>
     </section>

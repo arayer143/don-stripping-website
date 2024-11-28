@@ -67,9 +67,11 @@ export function Navbar() {
                       {item.label}
                     </Link>
                   ))}
+                  <Link href="/contact">
                   <Button variant="outline" className="mt-4" onClick={() => setIsOpen(false)}>
                     Get a Quote
                   </Button>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>

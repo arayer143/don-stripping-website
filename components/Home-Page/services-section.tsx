@@ -1,54 +1,78 @@
 'use client'
 
-import { Card, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { CheckCircle } from 'lucide-react'
+import { PaintBucket, Ruler, Truck, ShieldCheck, Paintbrush, RouteIcon as Road } from 'lucide-react'
 
 const services = [
-  { name: "Design and Layout", description: "Expert design and layout services for your surfaces." },
-  { name: "Wheel-stops", description: "Installation of durable wheel-stops for parking areas." },
-  { name: "Signs", description: "Custom signage solutions for your property." },
-  { name: "ADA compliance", description: "Ensuring your surfaces meet ADA standards." },
-  { name: "Basketball courts", description: "Professional basketball court painting and lining." },
-  { name: "Tennis and Pickleball courts", description: "Specialized court painting for tennis and pickleball." }
+  { 
+    name: "Parking Lot Striping", 
+    description: "Precise line marking for parking spaces, handicap zones, and traffic flow indicators.",
+    icon: Road
+  },
+  { 
+    name: "Asphalt Sealcoating", 
+    description: "Protective sealant application to extend the life of your asphalt surfaces.",
+    icon: PaintBucket
+  },
+  { 
+    name: "Concrete Sealing", 
+    description: "Application of sealants to protect concrete surfaces from wear and staining.",
+    icon: Paintbrush
+  },
+  { 
+    name: "ADA Compliance", 
+    description: "Ensuring your surfaces meet all current ADA standards and regulations.",
+    icon: ShieldCheck
+  },
+  { 
+    name: "Pavement Marking", 
+    description: "Clear and durable markings for roads, bike lanes, and pedestrian crossings.",
+    icon: Ruler
+  },
+  { 
+    name: "Thermoplastic Application", 
+    description: "Long-lasting, highly visible markings for high-traffic areas.",
+    icon: Truck
+  }
 ]
 
 export default function Services() {
   return (
-    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold tracking-tight text-center mb-4">Our Services</h2>
-      <p className="text-center text-lg mb-12 text-muted-foreground">
-        Don&apos;s Stripping Inc. - Directing you towards success in all your surface needs
-      </p>
-      <Tabs defaultValue="design" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/10">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold tracking-tight text-center mb-4">Our Services</h2>
+        <p className="text-center text-lg mb-12 text-muted-foreground">
+          Don&apos;s Stripping Inc. - Delivering excellence in concrete and asphalt surface solutions
+        </p>
+        <motion.div 
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.1 }}
+        >
           {services.map((service, index) => (
-            <TabsTrigger key={index} value={service.name.toLowerCase().replace(/\s+/g, '-')}>
-              {service.name}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-        {services.map((service, index) => (
-          <TabsContent key={index} value={service.name.toLowerCase().replace(/\s+/g, '-')}>
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              key={index}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <Card>
+              <Card className="h-full">
                 <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+                  <CardTitle className="flex items-center text-lg">
+                    <service.icon className="mr-2 h-5 w-5 text-primary" />
                     {service.name}
                   </CardTitle>
-                  <p>{service.description}</p>
                 </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
               </Card>
             </motion.div>
-          </TabsContent>
-        ))}
-      </Tabs>
+          ))}
+        </motion.div>
+      </div>
     </section>
   )
 }

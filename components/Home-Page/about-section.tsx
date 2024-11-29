@@ -67,7 +67,7 @@ export default function About() {
         >
           <Card>
             <CardHeader>
-              <CardTitle>Meet Our Founder</CardTitle>
+              <CardTitle>About us</CardTitle>
               <CardDescription>The driving force behind Don&apos;s Stripping Inc.</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row items-center gap-6">

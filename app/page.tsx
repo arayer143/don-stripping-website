@@ -22,9 +22,10 @@ export default function Page() {
       <Navbar />
       <Hero />
    <About />
+   <Services />
       <WhyChooseUs />
       
-      <Services />
+      
       <CTASection />
   
     

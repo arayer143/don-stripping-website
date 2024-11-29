@@ -2,38 +2,38 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { PaintBucket, Ruler, Truck, ShieldCheck, Paintbrush, RouteIcon as Road } from 'lucide-react'
+import { PenTool, Ruler, SignpostBig, Accessibility, BellIcon as Ball, SquareIcon } from 'lucide-react'
 
 const services = [
   { 
-    name: "Parking Lot Striping", 
-    description: "Precise line marking for parking spaces, handicap zones, and traffic flow indicators.",
-    icon: Road
+    name: "Design and Layout", 
+    description: "Expert design and layout services for parking lots, roads, and recreational areas.",
+    icon: PenTool
   },
   { 
-    name: "Asphalt Sealcoating", 
-    description: "Protective sealant application to extend the life of your asphalt surfaces.",
-    icon: PaintBucket
-  },
-  { 
-    name: "Concrete Sealing", 
-    description: "Application of sealants to protect concrete surfaces from wear and staining.",
-    icon: Paintbrush
-  },
-  { 
-    name: "ADA Compliance", 
-    description: "Ensuring your surfaces meet all current ADA standards and regulations.",
-    icon: ShieldCheck
-  },
-  { 
-    name: "Pavement Marking", 
-    description: "Clear and durable markings for roads, bike lanes, and pedestrian crossings.",
+    name: "Wheel-stops", 
+    description: "Installation and painting of durable wheel-stops for parking areas.",
     icon: Ruler
   },
   { 
-    name: "Thermoplastic Application", 
-    description: "Long-lasting, highly visible markings for high-traffic areas.",
-    icon: Truck
+    name: "Signs", 
+    description: "Custom signage solutions including handicap parking, directional signs, and more.",
+    icon: SignpostBig
+  },
+  { 
+    name: "ADA compliance", 
+    description: "Ensuring your surfaces meet all current ADA standards and regulations.",
+    icon: Accessibility
+  },
+  { 
+    name: "Basketball courts", 
+    description: "Professional basketball court design, painting, and line marking.",
+    icon: Ball
+  },
+  { 
+    name: "Tennis and Pickleball courts", 
+    description: "Specialized court painting and lining for tennis and pickleball facilities.",
+    icon: SquareIcon
   }
 ]
 
@@ -43,7 +43,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold tracking-tight text-center mb-4">Our Services</h2>
         <p className="text-center text-lg mb-12 text-muted-foreground">
-          Don&apos;s Stripping Inc. - Delivering excellence in concrete and asphalt surface solutions
+          Don&apos;s Stripping Inc. - Delivering excellence in surface marking and recreational court solutions
         </p>
         <motion.div 
           className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
